@@ -1,0 +1,27 @@
+html, body {
+    min-width: 320px;
+}
+
+.block {
+    @extend .valign-wrapper;
+
+    &__text {
+        padding: 0 20px;
+    }
+
+    &__bear {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    &__full-height {
+        min-height: 100vh;
+        height: 100vh;
+        max-height: 100vh;
+    }
+}
+
+li {
+    margin-bottom: 4px;
+}
