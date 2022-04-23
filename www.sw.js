@@ -13,75 +13,61 @@
 
 // If the loader is already loaded, just stop.
 if (!self.define) {
-  const singleRequire = name => {
-    if (name !== 'require') {
-      name = name + '.js';
-    }
-    let promise = Promise.resolve();
-    if (!registry[name]) {
+  let registry = {};
+
+  // Used for `eval` and `importScripts` where we can't get script URL by other means.
+  // In both cases, it's safe to use a global var because those functions are synchronous.
+  let nextDefineUri;
+
+  const singleRequire = (uri, parentUri) => {
+    uri = new URL(uri + ".js", parentUri).href;
+    return registry[uri] || (
       
-        promise = new Promise(async resolve => {
+        new Promise(resolve => {
           if ("document" in self) {
             const script = document.createElement("script");
-            script.src = name;
-            document.head.appendChild(script);
+            script.src = uri;
             script.onload = resolve;
+            document.head.appendChild(script);
           } else {
-            importScripts(name);
+            nextDefineUri = uri;
+            importScripts(uri);
             resolve();
           }
-        });
+        })
       
-    }
-    return promise.then(() => {
-      if (!registry[name]) {
-        throw new Error(`Module ${name} didn’t register its module`);
-      }
-      return registry[name];
-    });
+      .then(() => {
+        let promise = registry[uri];
+        if (!promise) {
+          throw new Error(`Module ${uri} didn’t register its module`);
+        }
+        return promise;
+      })
+    );
   };
 
-  const require = (names, resolve) => {
-    Promise.all(names.map(singleRequire))
-      .then(modules => resolve(modules.length === 1 ? modules[0] : modules));
-  };
-  
-  const registry = {
-    require: Promise.resolve(require)
-  };
-
-  self.define = (moduleName, depsNames, factory) => {
-    if (registry[moduleName]) {
+  self.define = (depsNames, factory) => {
+    const uri = nextDefineUri || ("document" in self ? document.currentScript.src : "") || location.href;
+    if (registry[uri]) {
       // Module is already loading or loaded.
       return;
     }
-    registry[moduleName] = Promise.resolve().then(() => {
-      let exports = {};
-      const module = {
-        uri: location.origin + moduleName.slice(1)
-      };
-      return Promise.all(
-        depsNames.map(depName => {
-          switch(depName) {
-            case "exports":
-              return exports;
-            case "module":
-              return module;
-            default:
-              return singleRequire(depName);
-          }
-        })
-      ).then(deps => {
-        const facValue = factory(...deps);
-        if(!exports.default) {
-          exports.default = facValue;
-        }
-        return exports;
-      });
+    let exports = {};
+    const require = depUri => singleRequire(depUri, uri);
+    const specialDeps = {
+      module: { uri },
+      exports,
+      require
+    };
+    registry[uri] = Promise.all(depsNames.map(
+      depName => specialDeps[depName] || require(depName)
+    )).then(deps => {
+      factory(...deps);
+      return exports;
     });
   };
 }
-define("./www.sw.js",['./workbox-b301135b'], function (workbox) { 'use strict';
+define(['./workbox-6f983169'], (function (workbox) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -98,7 +84,7 @@ define("./www.sw.js",['./workbox-b301135b'], function (workbox) { 'use strict';
   workbox.setCacheNameDetails({
     prefix: "@randy.tarampi/www"
   });
-  workbox.skipWaiting();
+  self.skipWaiting();
   workbox.clientsClaim();
   /**
    * The precacheAndRoute() method efficiently caches and responds to
@@ -204,94 +190,94 @@ define("./www.sw.js",['./workbox-b301135b'], function (workbox) { 'use strict';
     "revision": "e43b4aa7ff024e5dffcec725b36e0703"
   }, {
     "url": "/dist/fa-brands-400.eot",
-    "revision": "e2ca6541bff3a3e9f4799ee327b28c58"
+    "revision": "592643a83b8541edc52063d84c468700"
   }, {
     "url": "/dist/fa-brands-400.svg",
-    "revision": "2f12242375edd68e9013ecfb59c672e9"
+    "revision": "1d5619cd804367cefe6da2d79289218a"
   }, {
     "url": "/dist/fa-brands-400.ttf",
-    "revision": "8300bd7f30e0a313c1d772b49d96cb8e"
+    "revision": "513aa607d398efaccc559916c3431403"
   }, {
     "url": "/dist/fa-brands-400.woff",
-    "revision": "ad527cc5ec23d6da66e8a1d6772ea6d3"
+    "revision": "1a575a4138e5f366474f0e7c5bd614a5"
   }, {
     "url": "/dist/fa-brands-400.woff2",
-    "revision": "f075c50f89795e4cdb4d45b51f1a6800"
+    "revision": "ed311c7a0ade9a75bb3ebf5a7670f31d"
   }, {
     "url": "/dist/fa-regular-400.eot",
-    "revision": "b01516c1808be557667befec76cd6318"
+    "revision": "b0e2db3b634d1bc3928e127458d993d8"
   }, {
     "url": "/dist/fa-regular-400.svg",
-    "revision": "3602b7e8b2cb1462b0bef9738757ef8a"
+    "revision": "c5d109be8edd3de0f60eb472bd9ef691"
   }, {
     "url": "/dist/fa-regular-400.ttf",
-    "revision": "49f00693b0e5d45097832ef5ea1bc541"
+    "revision": "766913e6c0088ab8c9f73e18b4127bc4"
   }, {
     "url": "/dist/fa-regular-400.woff",
-    "revision": "3c6879c4f342203d099bdd66dce6d396"
+    "revision": "d1d7e3b4c219fde0f7376c6facfd7149"
   }, {
     "url": "/dist/fa-regular-400.woff2",
-    "revision": "4a74738e7728e93c4394b8604081da62"
+    "revision": "b91d376b8d7646d671cd820950d5f7f1"
   }, {
     "url": "/dist/fa-solid-900.eot",
-    "revision": "8ac3167427b1d5d2967646bd8f7a0587"
+    "revision": "0c6bfc668a72935760178f91327aed3a"
   }, {
     "url": "/dist/fa-solid-900.svg",
-    "revision": "664de3932dd6291b4b8a8c0ddbcb4c61"
+    "revision": "37bc7099f6f1ba80236164f22e905837"
   }, {
     "url": "/dist/fa-solid-900.ttf",
-    "revision": "205f07b3883c484f27f40d21a92950d4"
+    "revision": "b9625119ce4300f0ef890a8f3234c773"
   }, {
     "url": "/dist/fa-solid-900.woff",
-    "revision": "4451e1d86df7491dd874f2c41eee1053"
+    "revision": "d745348d289b149026921f197929a893"
   }, {
     "url": "/dist/fa-solid-900.woff2",
-    "revision": "8e1ed89b6ccb8ce41faf5cb672677105"
+    "revision": "d824df7eb2e268626a2dd9a6a741ac4e"
   }, {
     "url": "/fa-brands-400.eot",
-    "revision": "e2ca6541bff3a3e9f4799ee327b28c58"
+    "revision": "592643a83b8541edc52063d84c468700"
   }, {
     "url": "/fa-brands-400.svg",
-    "revision": "2f12242375edd68e9013ecfb59c672e9"
+    "revision": "1d5619cd804367cefe6da2d79289218a"
   }, {
     "url": "/fa-brands-400.ttf",
-    "revision": "8300bd7f30e0a313c1d772b49d96cb8e"
+    "revision": "513aa607d398efaccc559916c3431403"
   }, {
     "url": "/fa-brands-400.woff",
-    "revision": "ad527cc5ec23d6da66e8a1d6772ea6d3"
+    "revision": "1a575a4138e5f366474f0e7c5bd614a5"
   }, {
     "url": "/fa-brands-400.woff2",
-    "revision": "f075c50f89795e4cdb4d45b51f1a6800"
+    "revision": "ed311c7a0ade9a75bb3ebf5a7670f31d"
   }, {
     "url": "/fa-regular-400.eot",
-    "revision": "b01516c1808be557667befec76cd6318"
+    "revision": "b0e2db3b634d1bc3928e127458d993d8"
   }, {
     "url": "/fa-regular-400.svg",
-    "revision": "3602b7e8b2cb1462b0bef9738757ef8a"
+    "revision": "c5d109be8edd3de0f60eb472bd9ef691"
   }, {
     "url": "/fa-regular-400.ttf",
-    "revision": "49f00693b0e5d45097832ef5ea1bc541"
+    "revision": "766913e6c0088ab8c9f73e18b4127bc4"
   }, {
     "url": "/fa-regular-400.woff",
-    "revision": "3c6879c4f342203d099bdd66dce6d396"
+    "revision": "d1d7e3b4c219fde0f7376c6facfd7149"
   }, {
     "url": "/fa-regular-400.woff2",
-    "revision": "4a74738e7728e93c4394b8604081da62"
+    "revision": "b91d376b8d7646d671cd820950d5f7f1"
   }, {
     "url": "/fa-solid-900.eot",
-    "revision": "8ac3167427b1d5d2967646bd8f7a0587"
+    "revision": "0c6bfc668a72935760178f91327aed3a"
   }, {
     "url": "/fa-solid-900.svg",
-    "revision": "664de3932dd6291b4b8a8c0ddbcb4c61"
+    "revision": "37bc7099f6f1ba80236164f22e905837"
   }, {
     "url": "/fa-solid-900.ttf",
-    "revision": "205f07b3883c484f27f40d21a92950d4"
+    "revision": "b9625119ce4300f0ef890a8f3234c773"
   }, {
     "url": "/fa-solid-900.woff",
-    "revision": "4451e1d86df7491dd874f2c41eee1053"
+    "revision": "d745348d289b149026921f197929a893"
   }, {
     "url": "/fa-solid-900.woff2",
-    "revision": "8e1ed89b6ccb8ce41faf5cb672677105"
+    "revision": "d824df7eb2e268626a2dd9a6a741ac4e"
   }, {
     "url": "/favicon-16x16.png",
     "revision": "c2b34f7c6bc6bf8400f5f3677d28edc9"
@@ -372,13 +358,13 @@ define("./www.sw.js",['./workbox-b301135b'], function (workbox) { 'use strict';
     "revision": "41317dcbb1b860fcf88f240a0117f3d5"
   }, {
     "url": "/styles.css",
-    "revision": "5b74dcf5efbaa55505511807cb460fbc"
+    "revision": "fbc16268d6f11e81156668b2bcf0ea88"
   }, {
     "url": "/styles.js",
-    "revision": "dd734905d12cf87134205ca17f60230e"
+    "revision": "54e92e18e4f41b0aa50d4cb5973680b1"
   }, {
     "url": "/www.sw.installer.js",
-    "revision": "3b809353183bc22a9086bc47487bb549"
+    "revision": "b6532fb39fdba59f859b25027bb7cf2d"
   }, {
     "url": "/ʕつ•ᴥ•ʔつ-square-knockout-black.png",
     "revision": "ae9aa18ba3c0e31fbe133c7ac60b33b3"
@@ -400,5 +386,5 @@ define("./www.sw.js",['./workbox-b301135b'], function (workbox) { 'use strict';
     })]
   }), 'GET');
 
-});
+}));
 //# sourceMappingURL=www.sw.js.map

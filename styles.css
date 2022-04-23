@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -110,11 +110,13 @@
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
      -moz-animation: fa-spin 2s infinite linear;
+       -o-animation: fa-spin 2s infinite linear;
           animation: fa-spin 2s infinite linear; }
 
 .fa-pulse {
   -webkit-animation: fa-spin 1s infinite steps(8);
      -moz-animation: fa-spin 1s infinite steps(8);
+       -o-animation: fa-spin 1s infinite steps(8);
           animation: fa-spin 1s infinite steps(8); }
 
 @-webkit-keyframes fa-spin {
@@ -132,6 +134,14 @@
   100% {
     -moz-transform: rotate(360deg);
          transform: rotate(360deg); } }
+
+@-o-keyframes fa-spin {
+  0% {
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg); }
+  100% {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg); } }
 
 @keyframes fa-spin {
   0% {
@@ -4128,9 +4138,6 @@ readers do not read off random characters that represent icons */
 .fa-trello:before {
   content: "\f181"; }
 
-.fa-tripadvisor:before {
-  content: "\f262"; }
-
 .fa-trophy:before {
   content: "\f091"; }
 
@@ -7147,6 +7154,7 @@ td, th {
       will-change: left, right;
       -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
          -moz-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+           -o-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
               animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
     .progress .indeterminate:after {
       content: '';
@@ -7158,9 +7166,11 @@ td, th {
       will-change: left, right;
       -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
          -moz-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+           -o-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
               animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
       -webkit-animation-delay: 1.15s;
          -moz-animation-delay: 1.15s;
+           -o-animation-delay: 1.15s;
               animation-delay: 1.15s; }
 
 @-webkit-keyframes indeterminate {
@@ -7175,6 +7185,17 @@ td, th {
     right: -90%; } }
 
 @-moz-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+
+@-o-keyframes indeterminate {
   0% {
     left: -35%;
     right: 100%; }
@@ -7208,6 +7229,17 @@ td, th {
     right: -8%; } }
 
 @-moz-keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%; }
+  60% {
+    left: 107%;
+    right: -8%; }
+  100% {
+    left: 107%;
+    right: -8%; } }
+
+@-o-keyframes indeterminate-short {
   0% {
     left: -200%;
     right: 100%; }
@@ -11004,6 +11036,7 @@ input[type=range]::-ms-thumb {
     /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
     -webkit-animation: container-rotate 1568ms linear infinite;
     -moz-animation: container-rotate 1568ms linear infinite;
+      -o-animation: container-rotate 1568ms linear infinite;
          animation: container-rotate 1568ms linear infinite; }
 
 @-webkit-keyframes container-rotate {
@@ -11014,6 +11047,11 @@ input[type=range]::-ms-thumb {
   to {
     -moz-transform: rotate(360deg);
          transform: rotate(360deg); } }
+
+@-o-keyframes container-rotate {
+  to {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg); } }
 
 @keyframes container-rotate {
   to {
@@ -11062,24 +11100,28 @@ input[type=range]::-ms-thumb {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .active .spinner-layer.spinner-red {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .active .spinner-layer.spinner-yellow {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .active .spinner-layer.spinner-green {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .active .spinner-layer,
@@ -11091,6 +11133,7 @@ input[type=range]::-ms-thumb {
   opacity: 1;
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @-webkit-keyframes fill-unfill-rotate {
@@ -11151,6 +11194,40 @@ input[type=range]::-ms-thumb {
   to {
     -moz-transform: rotate(1080deg);
          transform: rotate(1080deg); }
+  /* 4   * ARCSIZE */ }
+
+@-o-keyframes fill-unfill-rotate {
+  12.5% {
+    -o-transform: rotate(135deg);
+       transform: rotate(135deg); }
+  /* 0.5 * ARCSIZE */
+  25% {
+    -o-transform: rotate(270deg);
+       transform: rotate(270deg); }
+  /* 1   * ARCSIZE */
+  37.5% {
+    -o-transform: rotate(405deg);
+       transform: rotate(405deg); }
+  /* 1.5 * ARCSIZE */
+  50% {
+    -o-transform: rotate(540deg);
+       transform: rotate(540deg); }
+  /* 2   * ARCSIZE */
+  62.5% {
+    -o-transform: rotate(675deg);
+       transform: rotate(675deg); }
+  /* 2.5 * ARCSIZE */
+  75% {
+    -o-transform: rotate(810deg);
+       transform: rotate(810deg); }
+  /* 3   * ARCSIZE */
+  87.5% {
+    -o-transform: rotate(945deg);
+       transform: rotate(945deg); }
+  /* 3.5 * ARCSIZE */
+  to {
+    -o-transform: rotate(1080deg);
+       transform: rotate(1080deg); }
   /* 4   * ARCSIZE */ }
 
 @keyframes fill-unfill-rotate {
@@ -11231,6 +11308,20 @@ input[type=range]::-ms-thumb {
   100% {
     opacity: 1; } }
 
+@-o-keyframes blue-fade-in-out {
+  from {
+    opacity: 1; }
+  25% {
+    opacity: 1; }
+  26% {
+    opacity: 0; }
+  89% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @keyframes blue-fade-in-out {
   from {
     opacity: 1; }
@@ -11258,6 +11349,18 @@ input[type=range]::-ms-thumb {
     opacity: 0; } }
 
 @-moz-keyframes red-fade-in-out {
+  from {
+    opacity: 0; }
+  15% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  51% {
+    opacity: 0; } }
+
+@-o-keyframes red-fade-in-out {
   from {
     opacity: 0; }
   15% {
@@ -11305,6 +11408,18 @@ input[type=range]::-ms-thumb {
   76% {
     opacity: 0; } }
 
+@-o-keyframes yellow-fade-in-out {
+  from {
+    opacity: 0; }
+  40% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  75% {
+    opacity: 1; }
+  76% {
+    opacity: 0; } }
+
 @keyframes yellow-fade-in-out {
   from {
     opacity: 0; }
@@ -11330,6 +11445,18 @@ input[type=range]::-ms-thumb {
     opacity: 0; } }
 
 @-moz-keyframes green-fade-in-out {
+  from {
+    opacity: 0; }
+  65% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-o-keyframes green-fade-in-out {
   from {
     opacity: 0; }
   65% {
@@ -11390,6 +11517,7 @@ input[type=range]::-ms-thumb {
             border-radius: 50%;
     -webkit-animation: none;
     -moz-animation: none;
+      -o-animation: none;
          animation: none;
     position: absolute;
     top: 0;
@@ -11416,12 +11544,14 @@ input[type=range]::-ms-thumb {
   /* duration: ARCTIME */
   -webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .active .circle-clipper.right .circle {
   /* duration: ARCTIME */
   -webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   -moz-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    -o-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
        animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @-webkit-keyframes left-spin {
@@ -11442,6 +11572,17 @@ input[type=range]::-ms-thumb {
   to {
     -moz-transform: rotate(130deg);
          transform: rotate(130deg); } }
+
+@-o-keyframes left-spin {
+  from {
+    -o-transform: rotate(130deg);
+       transform: rotate(130deg); }
+  50% {
+    -o-transform: rotate(-5deg);
+       transform: rotate(-5deg); }
+  to {
+    -o-transform: rotate(130deg);
+       transform: rotate(130deg); } }
 
 @keyframes left-spin {
   from {
@@ -11479,6 +11620,17 @@ input[type=range]::-ms-thumb {
     -moz-transform: rotate(-130deg);
          transform: rotate(-130deg); } }
 
+@-o-keyframes right-spin {
+  from {
+    -o-transform: rotate(-130deg);
+       transform: rotate(-130deg); }
+  50% {
+    -o-transform: rotate(5deg);
+       transform: rotate(5deg); }
+  to {
+    -o-transform: rotate(-130deg);
+       transform: rotate(-130deg); } }
+
 @keyframes right-spin {
   from {
     -webkit-transform: rotate(-130deg);
@@ -11500,6 +11652,7 @@ input[type=range]::-ms-thumb {
   /* duration: SHRINK_TIME */
   -webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
   -moz-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    -o-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
        animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1); }
 
 @-webkit-keyframes fade-out {
@@ -11509,6 +11662,12 @@ input[type=range]::-ms-thumb {
     opacity: 0; } }
 
 @-moz-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-o-keyframes fade-out {
   from {
     opacity: 1; }
   to {
@@ -11709,6 +11868,7 @@ input[type=range]::-ms-thumb {
     visibility: visible;
     -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
        -moz-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+         -o-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
             animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
     -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
     transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
@@ -11825,6 +11985,7 @@ input[type=range]::-ms-thumb {
     transition: opacity .3s, transform .3s, -webkit-transform .3s, -moz-transform .3s, -o-transform .3s;
     -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
        -moz-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+         -o-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
             animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
     z-index: -1; }
 
@@ -11855,6 +12016,20 @@ input[type=range]::-ms-thumb {
     opacity: 0;
     -moz-transform: scale(1.5);
          transform: scale(1.5); } }
+
+@-o-keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    -o-transform: scale(1);
+       transform: scale(1); }
+  50% {
+    opacity: 0;
+    -o-transform: scale(1.5);
+       transform: scale(1.5); }
+  100% {
+    opacity: 0;
+    -o-transform: scale(1.5);
+       transform: scale(1.5); } }
 
 @keyframes pulse-animation {
   0% {
@@ -12609,7 +12784,7 @@ ul:not(.browser-default) {
           filter: grayscale(80%); }
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -12625,7 +12800,7 @@ ul:not(.browser-default) {
   font-weight: 400; }
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -12641,7 +12816,7 @@ ul:not(.browser-default) {
   font-weight: 400; }
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
