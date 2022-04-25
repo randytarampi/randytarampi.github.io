@@ -99,13 +99,25 @@ define(['./workbox-6f983169'], (function (workbox) { 'use strict';
     "url": "/32338106b8a27eca0f7f.ttf",
     "revision": null
   }, {
+    "url": "/37ce1c8efaca69c9a622.eot",
+    "revision": null
+  }, {
+    "url": "/37eb2c4adb9a59f4ec34.svg",
+    "revision": null
+  }, {
     "url": "/394a9d340c3581a3eae4.ttf",
     "revision": null
   }, {
     "url": "/404.html",
     "revision": "b7d9bb0b7c50ad5dd4aafd701fd8a959"
   }, {
+    "url": "/4b8dc273b820e3b986b1.woff",
+    "revision": null
+  }, {
     "url": "/4efe4ab8ce1d66302c3f.ttf",
+    "revision": null
+  }, {
+    "url": "/5bb02dfd7fa1670b00fd.svg",
     "revision": null
   }, {
     "url": "/9bb4c4480aa4171fad27.woff2",
@@ -204,32 +216,74 @@ define(['./workbox-6f983169'], (function (workbox) { 'use strict';
     "url": "/apple-touch-icon..png",
     "revision": "782c5ff97a5057645955e931f983bdab"
   }, {
+    "url": "/bb7eff6cc4cd45d5d98d.woff",
+    "revision": null
+  }, {
+    "url": "/be162bc816aa8f83298b.svg",
+    "revision": null
+  }, {
     "url": "/blog.html",
     "revision": "537813df7656e7c03e5d051fc829770e"
   }, {
     "url": "/browserconfig..xml",
     "revision": "e43b4aa7ff024e5dffcec725b36e0703"
   }, {
+    "url": "/ce2f5b4ab976d5098fac.eot",
+    "revision": null
+  }, {
+    "url": "/cf0e5e68350b864b9460.eot",
+    "revision": null
+  }, {
     "url": "/d47fb16d054d4736673a.woff2",
     "revision": null
   }, {
+    "url": "/dist/fa-brands-400.eot",
+    "revision": "592643a83b8541edc52063d84c468700"
+  }, {
+    "url": "/dist/fa-brands-400.svg",
+    "revision": "1d5619cd804367cefe6da2d79289218a"
+  }, {
     "url": "/dist/fa-brands-400.ttf",
-    "revision": "a78ffbbed2d858c61e068e3b756c9988"
+    "revision": "513aa607d398efaccc559916c3431403"
+  }, {
+    "url": "/dist/fa-brands-400.woff",
+    "revision": "1a575a4138e5f366474f0e7c5bd614a5"
   }, {
     "url": "/dist/fa-brands-400.woff2",
-    "revision": "cd2b4095e9ce66cde642c3502a4022d9"
+    "revision": "ed311c7a0ade9a75bb3ebf5a7670f31d"
+  }, {
+    "url": "/dist/fa-regular-400.eot",
+    "revision": "b0e2db3b634d1bc3928e127458d993d8"
+  }, {
+    "url": "/dist/fa-regular-400.svg",
+    "revision": "c5d109be8edd3de0f60eb472bd9ef691"
   }, {
     "url": "/dist/fa-regular-400.ttf",
-    "revision": "b1a1bebb63656b34a23982706f712f71"
+    "revision": "766913e6c0088ab8c9f73e18b4127bc4"
+  }, {
+    "url": "/dist/fa-regular-400.woff",
+    "revision": "d1d7e3b4c219fde0f7376c6facfd7149"
   }, {
     "url": "/dist/fa-regular-400.woff2",
-    "revision": "e8a1ba418ee6d897d1339ef22e6d8e60"
+    "revision": "b91d376b8d7646d671cd820950d5f7f1"
+  }, {
+    "url": "/dist/fa-solid-900.eot",
+    "revision": "0c6bfc668a72935760178f91327aed3a"
+  }, {
+    "url": "/dist/fa-solid-900.svg",
+    "revision": "37bc7099f6f1ba80236164f22e905837"
   }, {
     "url": "/dist/fa-solid-900.ttf",
-    "revision": "738201559a50502aacabdbdb02720910"
+    "revision": "b9625119ce4300f0ef890a8f3234c773"
+  }, {
+    "url": "/dist/fa-solid-900.woff",
+    "revision": "d745348d289b149026921f197929a893"
   }, {
     "url": "/dist/fa-solid-900.woff2",
-    "revision": "55b416a8df21f9f987aa352f10d1343b"
+    "revision": "d824df7eb2e268626a2dd9a6a741ac4e"
+  }, {
+    "url": "/f5507a0df01bcccae0bc.woff",
+    "revision": null
   }, {
     "url": "/fa-brands-400..eot",
     "revision": "592643a83b8541edc52063d84c468700"
@@ -370,7 +424,7 @@ define(['./workbox-6f983169'], (function (workbox) { 'use strict';
     "revision": "41317dcbb1b860fcf88f240a0117f3d5"
   }, {
     "url": "/styles.css",
-    "revision": "058ca09e7563db44fbc66d2c1126e8f3"
+    "revision": "17c6d8bfe112573bacbb8c26c8aa17ed"
   }, {
     "url": "/styles.js",
     "revision": "54e92e18e4f41b0aa50d4cb5973680b1"
