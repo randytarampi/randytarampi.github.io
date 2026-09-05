@@ -1,7 +1,0 @@
-{
-  "filename": "letter.legal",
-  "renderOptions": {
-    "format": "Legal",
-    "mediaType": "print"
-  }
-}
